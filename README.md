@@ -2,6 +2,7 @@
 http://js13kgames.com/      
 #ps_does_js13k on Slack       
 Theme: Offline      
+This is a fork of: https://github.com/ooflorent/js13k-boilerplate
 
 > Shoot ’em up with a path drawing “planning” mechanic (i have no good word for this) and an ASCII art aesthetic with VAPORWAVE colors… The player is a process trying to get online, perhaps to reach a lost love on another host or just to be freed from the confines of a single machine…
 
