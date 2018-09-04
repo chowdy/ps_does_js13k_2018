@@ -1,58 +1,20 @@
-var loop = require('./loop');
-var rand = require('./rand');
-var key = require('./key');
+let gamestate = require('./gamestate')
 
-var canvas = document.createElement('canvas');
-canvas.width = 640;
-canvas.height = 480;
-canvas.style.backgroundColor = '#000';
-document.body.appendChild(canvas);
+var loop = require('./lib/loop')
+let globals = require('./globals')
+let ctx = globals.ctx
+let canvas = globals.canvas
 
-var ctx = canvas.getContext('2d');
-
-// demo entity
-var mob = {
-  x: rand.int(canvas.width),
-  y: rand.int(canvas.height),
-  width: 25,
-  height: 25,
-  speed: 150,
-  color: 'rgba(236, 94, 103, 1)'
-};
-
-// game loop
+// Game Loop
+// Called once per frame
 loop.start(function (dt) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-  // update mob
-  if (key.isDown(key.LEFT)) {
-    mob.x = mob.x - (mob.speed * dt);
-  }
-  if (key.isDown(key.RIGHT)) {
-    mob.x = mob.x + (mob.speed * dt);
-  }
-  if (key.isDown(key.UP)) {
-    mob.y = mob.y - (mob.speed * dt);
-  }
-  if (key.isDown(key.DOWN)) {
-    mob.y = mob.y + (mob.speed * dt);
-  }
+    if (!gamestate.getCurrGameState()) {
+        gamestate.changeGameState(require('./game_states/boot'))
+    }
 
-  // check bounds collisions
-  if (mob.x < 0) {
-    mob.x = canvas.width;
-  } else if (mob.x > canvas.width) {
-    mob.x = 0;
-  }
-  if (mob.y < 0) {
-    mob.y = canvas.height;
-  } else if (mob.y > canvas.height) {
-    mob.y = 0;
-  }
+    gamestate.update(dt)
 
-  // draw mob
-  ctx.fillStyle = mob.color;
-  ctx.fillRect(mob.x, mob.y, mob.width, mob.height);
-
-  console.log('game update fn %s', dt);
+    console.log('game update fn %s', dt);
 });
