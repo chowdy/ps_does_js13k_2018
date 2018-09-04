@@ -12,7 +12,7 @@ var mob = {
     height: 25,
     speed: 150,
     color: 'rgba(236, 94, 103, 1)'
-};
+}
 
 module.exports = {
 
@@ -24,33 +24,33 @@ module.exports = {
 
         // update mob
         if (key.isDown(key.LEFT)) {
-            mob.x = mob.x - (mob.speed * dt);
+            mob.x = mob.x - (mob.speed * dt)
         }
         if (key.isDown(key.RIGHT)) {
-            mob.x = mob.x + (mob.speed * dt);
+            mob.x = mob.x + (mob.speed * dt)
         }
         if (key.isDown(key.UP)) {
-            mob.y = mob.y - (mob.speed * dt);
+            mob.y = mob.y - (mob.speed * dt)
         }
         if (key.isDown(key.DOWN)) {
-            mob.y = mob.y + (mob.speed * dt);
+            mob.y = mob.y + (mob.speed * dt)
         }
 
         // check bounds collisions
         if (mob.x < 0) {
-            mob.x = canvas.width;
+            mob.x = canvas.width
         } else if (mob.x > canvas.width) {
-            mob.x = 0;
+            mob.x = 0
         }
         if (mob.y < 0) {
-            mob.y = canvas.height;
+            mob.y = canvas.height
         } else if (mob.y > canvas.height) {
-            mob.y = 0;
+            mob.y = 0
         }
 
         // draw mob
-        ctx.fillStyle = mob.color;
-        ctx.fillRect(mob.x, mob.y, mob.width, mob.height);
+        ctx.fillStyle = mob.color
+        ctx.fillRect(mob.x, mob.y, mob.width, mob.height)
 
     },
 

@@ -16,5 +16,5 @@ loop.start(function (dt) {
 
     gamestate.update(dt)
 
-    console.log('game update fn %s', dt);
-});
+    console.log('game update fn %s', dt)
+})

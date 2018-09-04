@@ -1,9 +1,9 @@
-var seed = 0;
+var seed = 0
 
 function random () {
-  var x = Math.sin(.8765111159592828 + seed++) * 10000;
+    var x = Math.sin(.8765111159592828 + seed++) * 10000
 
-  return x - Math.floor(x);
+    return x - Math.floor(x)
 }
 
 /**
@@ -13,8 +13,8 @@ function random () {
  * @return {int}
  */
 exports.int = function (max) {
-  return random() * (max || 0xfffffff) | 0;
-};
+    return random() * (max || 0xfffffff) | 0
+}
 
 /**
  * Return a float within [0.0, 1.0).
@@ -22,8 +22,8 @@ exports.int = function (max) {
  * @return {float}
  */
 exports.float = function () {
-  return random();
-};
+    return random()
+}
 
 /**
  * Return a boolean.
@@ -31,8 +31,8 @@ exports.float = function () {
  * @return {Boolean}
  */
 exports.bool = function () {
-  return random() > 0.5;
-};
+    return random() > 0.5
+}
 
 /**
  * Return an integer within [min, max).
@@ -42,8 +42,8 @@ exports.bool = function () {
  * @return {int}
  */
 exports.range = function (min, max) {
-  return this.int(max - min) + min;
-};
+    return this.int(max - min) + min
+}
 
 /**
  * Pick an element from the source.
@@ -52,5 +52,5 @@ exports.range = function (min, max) {
  * @return {mixed}
  */
 exports.pick = function (source) {
-  return source[this.range(0, source.length)];
-};
+    return source[this.range(0, source.length)]
+}

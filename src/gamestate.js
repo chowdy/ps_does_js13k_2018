@@ -1,7 +1,5 @@
-
 var prevGameState = undefined
 var currGameState = undefined
-var stateStarted = false
 
 module.exports.changeGameState = (nextGameState) => {
     if (prevGameState) {
