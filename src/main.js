@@ -1,20 +1,16 @@
-let gamestate = require('./gamestate')
+const globals = require('./globals')
+const gamestate = require('./gamestate')
+const loop = require('./lib/loop')
 
-var loop = require('./lib/loop')
-let globals = require('./globals')
-let ctx = globals.ctx
-let canvas = globals.canvas
+console.log('Hello world!')
+gamestate.changeGameState(require('./gamestates/boot'))
 
 // Game Loop
 // Called once per frame
-loop.start(function (dt) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+loop.start(function (deltaTime) {
+    globals.ctx.clearRect(0, 0, globals.canvas.width, globals.canvas.height)
 
-    if (!gamestate.getCurrGameState()) {
-        gamestate.changeGameState(require('./gamestates/boot'))
-    }
+    gamestate.update(deltaTime)
 
-    gamestate.update(dt)
-
-    console.log('game update fn %s', dt)
+    //console.log('game update fn %s', deltaTime)
 })

@@ -1,60 +1,59 @@
-let key = require('../lib/input')
-let rand = require('../lib/rand')
-let globals = require('../globals')
-let ctx = globals.ctx
-let canvas = globals.canvas
+const input = require('../lib/input')
+const { canvas } = require('../globals')
+const Player = require('../entities/player')
 
 // demo entity
-var mob = {
-    x: rand.int(canvas.width),
-    y: rand.int(canvas.height),
-    width: 25,
-    height: 25,
-    speed: 150,
-    color: 'rgba(236, 94, 103, 1)'
-}
+// TODO: Refactor into a list of entities, call each one's update methods per frame
+let player = new Player()
 
 module.exports = {
 
     start() {
-        console.log('boot game state started')
+        console.log('play game state started')
     },
 
+    // deltaTime is the time between frames
+    // If your code is running in update and does anything over time, it needs to be relative to
+    // deltaTime
     update(deltaTime) {
 
-        // update mob
-        if (key.isDown(key.LEFT)) {
-            mob.x = mob.x - (mob.speed * deltaTime)
+        // player controller
+        // TODO: Break out into player entity update
+        if (input.isDown(input.LEFT)) {
+            player.x = player.x - (player.speed * deltaTime)
         }
-        if (key.isDown(key.RIGHT)) {
-            mob.x = mob.x + (mob.speed * deltaTime)
+        if (input.isDown(input.RIGHT)) {
+            console.log(JSON.stringify(player))
+            player.x = player.x + (player.speed * deltaTime)
         }
-        if (key.isDown(key.UP)) {
-            mob.y = mob.y - (mob.speed * deltaTime)
+        if (input.isDown(input.UP)) {
+            player.y = player.y - (player.speed * deltaTime)
         }
-        if (key.isDown(key.DOWN)) {
-            mob.y = mob.y + (mob.speed * deltaTime)
+        if (input.isDown(input.DOWN)) {
+            player.y = player.y + (player.speed * deltaTime)
         }
 
         // check bounds collisions
-        if (mob.x < 0) {
-            mob.x = canvas.width
-        } else if (mob.x > canvas.width) {
-            mob.x = 0
+        // TODO: Break out into player entity update
+        if (player.x < 0) {
+            player.x = canvas.width
+        } else if (player.x > canvas.width) {
+            player.x = 0
         }
-        if (mob.y < 0) {
-            mob.y = canvas.height
-        } else if (mob.y > canvas.height) {
-            mob.y = 0
+        if (player.y < 0) {
+            player.y = canvas.height
+        } else if (player.y > canvas.height) {
+            player.y = 0
         }
 
-        // draw mob
-        ctx.fillStyle = mob.color
-        ctx.fillRect(mob.x, mob.y, mob.width, mob.height)
+        player.stateUpdate()
+
+        // draw player
+        player.renderUpdate()
 
     },
 
     end() {
-        console.log('boot game state ended')
+        console.log('play game state ended')
     }
 }
