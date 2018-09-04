@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3f77c405-d073-4008-9d49-371df63fe2aa" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/b.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/b.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_states/boot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/boot.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_states/gameover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/gameover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game_states/play.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/gamestates/play.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -81,7 +82,7 @@
                 </entry>
               </file>
               <file pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/game_states/boot.js">
+                <entry file="file://$PROJECT_DIR$/src/gamestates/boot.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="255">
                       <caret line="17" selection-start-line="17" selection-end-line="17" />
@@ -110,8 +111,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/webpack.config.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="376">
-                      <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+                    <state relative-caret-position="645">
+                      <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
                     </state>
                   </provider>
                 </entry>
@@ -136,7 +137,11 @@
             <leaf>
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/globals.js">
-                  <provider selected="true" editor-type-id="text-editor" />
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="135">
+                      <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+                    </state>
+                  </provider>
                 </entry>
               </file>
             </leaf>
@@ -146,7 +151,7 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/game_states/play.js">
+            <entry file="file://$PROJECT_DIR$/src/gamestates/play.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="435">
                   <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
@@ -233,7 +238,7 @@
               <item name="ps_does_js13k_2018" type="b2602c69:ProjectViewProjectNode" />
               <item name="ps_does_js13k_2018" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game_states" type="462c0819:PsiDirectoryNode" />
+              <item name="gamestates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ps_does_js13k_2018" type="b2602c69:ProjectViewProjectNode" />
@@ -286,12 +291,12 @@
       <option name="presentableId" value="Default" />
       <updated>1535485808976</updated>
       <workItem from="1535485810208" duration="956000" />
-      <workItem from="1536038147584" duration="5273000" />
+      <workItem from="1536038147584" duration="6224000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6229000" />
+    <option name="totallyTimeSpent" value="7180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1178" extended-state="6" />
@@ -340,10 +345,10 @@
     <entry file="file://$PROJECT_DIR$/src/gamestates/gamestate.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_states/gameover.js">
+    <entry file="file://$PROJECT_DIR$/src/gamestates/gameover.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_states/boot.js">
+    <entry file="file://$PROJECT_DIR$/src/gamestates/boot.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
@@ -367,7 +372,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game_states/play.js">
+    <entry file="file://$PROJECT_DIR$/src/gamestates/play.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
@@ -401,9 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/globals.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -411,10 +413,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="645">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>

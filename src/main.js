@@ -11,7 +11,7 @@ loop.start(function (dt) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     if (!gamestate.getCurrGameState()) {
-        gamestate.changeGameState(require('./game_states/boot'))
+        gamestate.changeGameState(require('./gamestates/boot'))
     }
 
     gamestate.update(dt)
