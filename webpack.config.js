@@ -8,41 +8,42 @@ var env = process.env.NODE_ENV || 'development';
 var isProduction = env === 'production';
 
 var plugins = [
-  new webpack.DefinePlugin({
-    'PRODUCTION': isProduction
-  }),
-  new HtmlPlugin({
-    title: 'js13k-boilerplate'
-  })
+    new webpack.DefinePlugin({
+        'PRODUCTION': isProduction
+    }),
+    new HtmlPlugin({
+        title: '#ps_does_js13k 2018'
+    })
 ];
 
 if (isProduction) {
-  plugins = plugins.concat([
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false },
-      output: { comments: false }
-    }),
-    new webpack.NoErrorsPlugin()
-  ]);
+    plugins = plugins.concat([
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false },
+            output: { comments: false }
+        }),
+        new webpack.NoErrorsPlugin()
+    ]);
 }
 
 module.exports = {
-  devtool: 'eval',
+    devtool: 'eval',
 
-  entry: {
-    app: './src/main'
-  },
+    entry: {
+        app: './src/main'
+    },
 
-  output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'b.js'
-  },
+    output: {
+        path: path.join(__dirname, 'build'),
+        filename: 'b.js'
+    },
 
-  plugins: plugins,
+    plugins: plugins,
 
-  resolve: {
-    extensions: ['', '.js', 'json']
-  }
+    resolve: {
+        extensions: ['.js', 'json']
+    },
+
 };
