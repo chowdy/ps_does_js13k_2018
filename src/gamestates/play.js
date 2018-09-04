@@ -20,20 +20,20 @@ module.exports = {
         console.log('boot game state started')
     },
 
-    update(dt) {
+    update(deltaTime) {
 
         // update mob
         if (key.isDown(key.LEFT)) {
-            mob.x = mob.x - (mob.speed * dt)
+            mob.x = mob.x - (mob.speed * deltaTime)
         }
         if (key.isDown(key.RIGHT)) {
-            mob.x = mob.x + (mob.speed * dt)
+            mob.x = mob.x + (mob.speed * deltaTime)
         }
         if (key.isDown(key.UP)) {
-            mob.y = mob.y - (mob.speed * dt)
+            mob.y = mob.y - (mob.speed * deltaTime)
         }
         if (key.isDown(key.DOWN)) {
-            mob.y = mob.y + (mob.speed * dt)
+            mob.y = mob.y + (mob.speed * deltaTime)
         }
 
         // check bounds collisions
