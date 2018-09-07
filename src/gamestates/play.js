@@ -1,5 +1,5 @@
 const input = require('../lib/input')
-const { canvas } = require('../globals')
+const Globals = require('../globals')
 const Player = require('../entities/player')
 
 // demo entity
@@ -17,14 +17,20 @@ module.exports = {
     // deltaTime
     update(deltaTime) {
 
+        let ctx = Globals.getCtx()
+        let canvas = ctx.canvas
+
+        //console.log(ctx, canvas)
+
         // player controller
         // TODO: Break out into player entity update
         if (input.isDown(input.LEFT)) {
             player.x = player.x - (player.speed * deltaTime)
         }
         if (input.isDown(input.RIGHT)) {
-            console.log(JSON.stringify(player))
+            console.log(player, ctx)
             player.x = player.x + (player.speed * deltaTime)
+            console.log(player, ctx)
         }
         if (input.isDown(input.UP)) {
             player.y = player.y - (player.speed * deltaTime)

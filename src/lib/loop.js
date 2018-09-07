@@ -1,9 +1,9 @@
-let globals = require('../globals')
+let Globals = require('../globals')
 
 var lastTime = timestamp()
 var stats
 
-if (globals.CONFIDENCE_LEVEL == 'dev') {
+if (Globals.CONFIDENCE_LEVEL == 'dev') {
     stats = require('stats.js')(0)
     document.body.appendChild(stats.dom)
 }
@@ -19,25 +19,25 @@ function raf (fn) {
         stats && stats.begin()
 
         var now = timestamp()
-        var dt = now - lastTime
+        var deltaTime = now - lastTime
 
-        if (dt > 999) {
-            dt = 1 / 60
+        if (deltaTime > 999) {
+            deltaTime = 1 / 60
         } else {
-            dt /= 1000
+            deltaTime /= 1000
         }
 
         lastTime = now
 
-        fn(dt)
+        fn(deltaTime)
 
         stats && stats.end()
     })
 }
 
 exports.start = function (fn) {
-    return raf(function tick (dt) {
-        fn(dt)
+    return raf(function tick (deltaTime) {
+        fn(deltaTime)
         raf(tick)
     })
 }

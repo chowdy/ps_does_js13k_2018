@@ -1,4 +1,5 @@
 let gamestate = require('../gamestate')
+//const Globals = require('../globals')
 
 module.exports = {
     start() {
