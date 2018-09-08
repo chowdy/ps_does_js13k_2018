@@ -1,11 +1,12 @@
-console.log('Hello world! -- The game has started')
-
+/*
+ * main.js
+ *
+ * The entry point for the game. The first lines of code executed are at the bottom of the file (ignoring requires)
+ */
 const Globals = require('./globals')
 const gamestate = require('./gamestate-manager')
 const loop = require('./lib/loop')
 const Boot = require('./gamestates/boot')
-
-gamestate.changeGameState(new Boot())
 
 function createCanvas() {
     let canvas = document.createElement('canvas')
@@ -18,20 +19,22 @@ function createCanvas() {
     console.log('canvas created', canvas)
 }
 
-createCanvas()
-
 /*
  * The Game Loop ⚡️ - Called once per frame
  *
  * deltaTime is the time between frames
  * If your code is running in update and does things over time, it likely needs to be relative to deltaTime
  */
-loop.start(function (deltaTime) {
+function TheGameLoop (deltaTime) {
     let ctx = Globals.getCtx()
-
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-
     gamestate.update(deltaTime)
+}
 
-    //console.log('game update fn %s', deltaTime)
-})
+/*
+ * The entry point to the game! 🎉
+ */
+console.log('Hello world! -- The game has started')
+gamestate.changeGameState(new Boot())
+createCanvas()
+loop.start(TheGameLoop)

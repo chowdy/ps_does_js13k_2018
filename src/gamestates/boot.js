@@ -17,7 +17,7 @@ class Boot extends Gamestate {
         console.log('boot game state started')
 
         console.log(window)
-        window.setTimeout(() => { gamestate.changeGameState(new Play()) }, 3.0)
+        window.setTimeout(() => { gamestate.changeGameState(new Play()) }, 3000)
     }
 
     update() {

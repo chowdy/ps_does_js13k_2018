@@ -26,8 +26,8 @@ class Player extends Entity {
             this.x = this.x - (this.speed * deltaTime)
         }
         if (input.isDown(input.RIGHT)) {
-            console.log('handleInput: pressed RIGHT')
-            console.log(this)
+            //console.log('handleInput: pressed RIGHT')
+            //console.log(this)
             this.x = this.x + (this.speed * deltaTime)
         }
         if (input.isDown(input.UP)) {
