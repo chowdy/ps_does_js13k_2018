@@ -14,7 +14,8 @@ class Entity {
         this.speed = 100
     }
 
-    stateUpdate() {
+    stateUpdate(deltaTime) {
+        deltaTime // eslint 🙃
     }
 
     renderUpdate() {

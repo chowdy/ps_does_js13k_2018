@@ -22,37 +22,7 @@ module.exports = {
 
         //console.log(ctx, canvas)
 
-        // player controller
-        // TODO: Break out into player entity update
-        if (input.isDown(input.LEFT)) {
-            player.x = player.x - (player.speed * deltaTime)
-        }
-        if (input.isDown(input.RIGHT)) {
-            console.log(player, ctx)
-            player.x = player.x + (player.speed * deltaTime)
-            console.log(player, ctx)
-        }
-        if (input.isDown(input.UP)) {
-            player.y = player.y - (player.speed * deltaTime)
-        }
-        if (input.isDown(input.DOWN)) {
-            player.y = player.y + (player.speed * deltaTime)
-        }
-
-        // check bounds collisions
-        // TODO: Break out into player entity update
-        if (player.x < 0) {
-            player.x = canvas.width
-        } else if (player.x > canvas.width) {
-            player.x = 0
-        }
-        if (player.y < 0) {
-            player.y = canvas.height
-        } else if (player.y > canvas.height) {
-            player.y = 0
-        }
-
-        player.stateUpdate()
+        player.stateUpdate(deltaTime)
 
         // draw player
         player.renderUpdate()
