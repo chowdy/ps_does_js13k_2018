@@ -1,8 +1,8 @@
-const Globals = require('../globals')
+//const Globals = require('../globals')
 const Player = require('../entities/player')
 
 // demo entity
-// TODO: Refactor into a list of entities, call each one's update methods per frame
+// TODO: Refactor into a list of entities, call each one's update methods per frame?
 let player = new Player()
 
 module.exports = {
