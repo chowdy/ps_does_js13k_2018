@@ -3,7 +3,7 @@ const Globals = require('../globals')
 
 class Entity {
 
-    constructor(name) {
+    constructor(name, renderUpdateOverride) {
         this.name = name
         this.x = rand.int(Globals.getCtx().canvas.width)
         this.y = rand.int(Globals.getCtx().canvas.height)
@@ -12,6 +12,11 @@ class Entity {
         this.speed = 150
         this.color = 'rgba(236, 94, 103, 1)'
         this.speed = 100
+
+        if (renderUpdateOverride) {
+            // Woah, is this overriding the method? I wonder if this works lol
+            this.renderUpdate = renderUpdateOverride
+        }
     }
 
     stateUpdate(deltaTime) {

@@ -1,10 +1,11 @@
 console.log('Hello world! -- The game has started')
 
 const Globals = require('./globals')
-const gamestate = require('./gamestate')
+const gamestate = require('./gamestate-manager')
 const loop = require('./lib/loop')
+const Boot = require('./gamestates/boot')
 
-gamestate.changeGameState(require('./gamestates/boot'))
+gamestate.changeGameState(new Boot())
 
 function createCanvas() {
     let canvas = document.createElement('canvas')
@@ -19,8 +20,12 @@ function createCanvas() {
 
 createCanvas()
 
-// Game Loop
-// Called once per frame
+/*
+ * The Game Loop ⚡️ - Called once per frame
+ *
+ * deltaTime is the time between frames
+ * If your code is running in update and does things over time, it likely needs to be relative to deltaTime
+ */
 loop.start(function (deltaTime) {
     let ctx = Globals.getCtx()
 

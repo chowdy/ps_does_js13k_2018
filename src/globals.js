@@ -1,3 +1,8 @@
+/*
+ * globals.js
+ *
+ * 🚮 a dumping ground for stuff used all over the place
+ */
 
 const CANVAS_ID = 'canvas0'
 const CONFIDENCE_LEVEL = 'dev' // this is bad
@@ -12,6 +17,14 @@ function getCtx() {
 
 module.exports.CANVAS_ID = CANVAS_ID
 module.exports.CONFIDENCE_LEVEL = CONFIDENCE_LEVEL
-
 module.exports.getCanvas = getCanvas
 module.exports.getCtx = getCtx
+
+module.exports.utils = {
+
+}
+
+module.exports.render = {
+    text() {
+    }
+}

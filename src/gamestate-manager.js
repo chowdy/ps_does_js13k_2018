@@ -1,9 +1,8 @@
-
 var prevGameState = undefined
 var currGameState = undefined
 
 module.exports.changeGameState = (nextGameState) => {
-    console.log('change game state to: ', nextGameState)
+    console.log('change gamestate from ', currGameState, 'to', nextGameState)
     if (prevGameState) {
         prevGameState.end()
     }
