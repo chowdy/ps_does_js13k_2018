@@ -1,4 +1,3 @@
-const input = require('../lib/input')
 const Globals = require('../globals')
 const Player = require('../entities/player')
 
@@ -17,8 +16,8 @@ module.exports = {
     // deltaTime
     update(deltaTime) {
 
-        let ctx = Globals.getCtx()
-        let canvas = ctx.canvas
+        //let ctx = Globals.getCtx()
+        //let canvas = ctx.canvas
 
         //console.log(ctx, canvas)
 
