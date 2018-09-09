@@ -5,16 +5,17 @@ input.LEFT = 37
 input.UP = 38
 input.RIGHT = 39
 input.DOWN = 40
+input.SPACE_BAR = 32
 
 input.isDown = function (keyCode) {
     if (_pressed[keyCode]) {
-        //console.log(`${ keyCode } isDown`)
+        // console.log(`${ keyCode } isDown`)
     }
     return _pressed[keyCode]
 }
 
 input.onKeydown = function (event) {
-    //console.log(`${ event.keyCode } onKeyDown event`)
+    // console.log(`${ event.keyCode } onKeyDown event`)
     _pressed[event.keyCode] = true
 }
 

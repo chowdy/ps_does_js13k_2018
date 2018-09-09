@@ -3,15 +3,14 @@ const Globals = require('../globals')
 
 class Entity {
 
-    constructor(name, renderUpdateOverride) {
+    constructor(name, renderUpdateOverride, width, height, speed, color) {
         this.name = name
         this.x = rand.int(Globals.getCtx().canvas.width)
         this.y = rand.int(Globals.getCtx().canvas.height)
-        this.width = 25
-        this.height = 25
-        this.speed = 150
-        this.color = 'rgba(236, 94, 103, 1)'
-        this.speed = 100
+        this.width = width
+        this.height = height
+        this.speed = speed
+        this.color = color
 
         if (renderUpdateOverride) {
             // Woah, is this overriding the method? I wonder if this works lol
