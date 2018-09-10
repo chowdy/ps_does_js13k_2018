@@ -17,7 +17,7 @@ function renderMainMenu() {
     ctx.fillText('js13k 2018',10,75)
 
     ctx.font = `10px ${Globals.font }`
-    ctx.fillText('press enter to play',10,100)
+    ctx.fillText('press space bar to play',10,100)
 
 }
 

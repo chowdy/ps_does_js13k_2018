@@ -21,7 +21,6 @@ class Play extends Gamestate {
         //console.log(ctx, canvas)
 
         this.player.stateUpdate(deltaTime)
-
         // draw player
         this.player.renderUpdate()
     }

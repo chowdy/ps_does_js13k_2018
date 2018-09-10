@@ -13,8 +13,14 @@ function createCanvas() {
     canvas.setAttribute('id', Globals.CANVAS_ID)
     canvas.width = 640
     canvas.height = 480
-    canvas.style.backgroundColor = '#000000'
+    canvas.style.backgroundColor = Globals.colors.Black
     document.body.appendChild(canvas)
+
+    // Create instructions
+    var para = document.createElement('P')
+    var missileInstructions = document.createTextNode('Press Spacebar to shoot a missile')
+    para.appendChild(missileInstructions)
+    document.body.appendChild(para)
     //let ctx = canvas.getContext('2d')
     console.log('canvas created', canvas)
 }
@@ -22,8 +28,8 @@ function createCanvas() {
 /*
  * The Game Loop ⚡️ - Called once per frame
  *
- * deltaTime is the time between frames
- * If your code is running in update and does things over time, it likely needs to be relative to deltaTime
+ * deltaTime is the timeOfLastMissile between frames
+ * If your code is running in update and does things over timeOfLastMissile, it likely needs to be relative to deltaTime
  */
 function TheGameLoop (deltaTime) {
     let ctx = Globals.getCtx()
