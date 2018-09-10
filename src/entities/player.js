@@ -16,7 +16,6 @@ class Player extends Entity {
 
     stateUpdate(deltaTime) {
         super.stateUpdate(deltaTime)
-        // console.log(this.toString())
         this.handleInput(deltaTime)
         this.containWithinCanvasBounds()
         this.renderMissiles(deltaTime)
@@ -27,12 +26,12 @@ class Player extends Entity {
     }
 
     handleInput(deltaTime) {
+
+        // Movement
         if (input.isDown(input.LEFT)) {
             this.x = this.x - (this.speed * deltaTime)
         }
         if (input.isDown(input.RIGHT)) {
-            //console.log('handleInput: pressed RIGHT')
-            //console.log(this)
             this.x = this.x + (this.speed * deltaTime)
         }
         if (input.isDown(input.UP)) {
@@ -41,6 +40,8 @@ class Player extends Entity {
         if (input.isDown(input.DOWN)) {
             this.y = this.y + (this.speed * deltaTime)
         }
+
+        // Fire
         if (input.isDown(input.FIRE)) {
             this.shootMissile()
         }
