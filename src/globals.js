@@ -14,23 +14,6 @@ function getCtx() {
     return getCanvas().getContext('2d')
 }
 
-module.exports.CANVAS_ID = CANVAS_ID
-module.exports.CONFIDENCE_LEVEL = CONFIDENCE_LEVEL
-module.exports.getCanvas = getCanvas
-module.exports.getCtx = getCtx
-
-module.exports.utils = {
-
-}
-
-module.exports.render = {
-
-    // Render some text on the screen
-    text(text, opts = {}) {
-        text; opts
-    }
-}
-
 module.exports.colors = {
 
     // DB32 Color Palette
@@ -44,7 +27,7 @@ module.exports.colors = {
     Twine: '#d9a066',
     Pancho: '#eec39a',
     GoldenFizz: '#fbf236',
-    Atlantis: '#99e550',
+    Atlantis: '#99e550',        // Nice color for text on the terminal
     Christi: '#6abe30',
     ElfGreen: '#37946e',
     Dell: '#4b692f',
@@ -69,5 +52,42 @@ module.exports.colors = {
     Stinger: '#8a6f30',
 }
 
+module.exports.CANVAS_ID = CANVAS_ID
+module.exports.CONFIDENCE_LEVEL = CONFIDENCE_LEVEL
+module.exports.getCanvas = getCanvas
+module.exports.getCtx = getCtx
+
+module.exports.utils = {
+
+}
+
 // It's web safe and monospace
-module.exports.font = 'Courier New'
+module.exports.typeface = 'Courier New'
+
+module.exports.render = {
+
+    // Render some text on the screen
+    text(text, opts = {}) {
+
+        let defaultOpts = {
+            fillStyle: module.exports.colors.Atlantis,
+            size: '30px',
+            typeface: module.exports.typeface,
+            x: 0,
+            y: 0
+        }
+        opts = Object.assign(defaultOpts, opts)
+
+        console.log(opts)
+
+        let ctx = getCtx()
+
+        ctx.fillStyle = opts.fillStyle
+        ctx.font = `${opts.size} ${opts.typeface}`
+        ctx.fillText(text, opts.x, opts.y)
+
+    }
+
+}
+
+

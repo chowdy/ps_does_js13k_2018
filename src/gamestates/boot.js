@@ -6,18 +6,9 @@ const Input = require('../lib/input')
 
 function renderMainMenu() {
 
-    let ctx = Globals.getCtx()
-
-    ctx.fillStyle = Globals.colors.Christi
-
-    ctx.font = `30px ${Globals.font }`
-    ctx.fillText('Name TBD',10,50)
-
-    ctx.font = `15px ${Globals.font }`
-    ctx.fillText('js13k 2018',10,75)
-
-    ctx.font = `10px ${Globals.font }`
-    ctx.fillText('press space bar to play',10,100)
+    Globals.render.text('Name TBD', { x: 10, y: 50, size: '30px' })
+    Globals.render.text('js13k 2018', { x: 10, y: 75, size: '15px' })
+    Globals.render.text('press space bar to play', { x: 10, y: 100, size: '10px '})
 
 }
 

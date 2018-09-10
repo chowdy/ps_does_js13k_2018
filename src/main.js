@@ -18,7 +18,7 @@ function createCanvas() {
 
     // Create instructions
     var para = document.createElement('P')
-    var missileInstructions = document.createTextNode('Press Spacebar to shoot a missile')
+    var missileInstructions = document.createTextNode('press space bar to fire')
     para.appendChild(missileInstructions)
     document.body.appendChild(para)
     //let ctx = canvas.getContext('2d')

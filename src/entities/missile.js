@@ -1,9 +1,10 @@
 const Entity = require('./entity')
+const Globals = require('../globals')
 
 class Missile extends Entity {
 
     constructor(x, y) {
-        super('Missile', null, 10, 10, 200, 'rgba(236, 200, 103, 1)')
+        super('Missile', null, 10, 10, 200, Globals.colors.GoldenFizz)
         console.log(`instantiated ${ this.toString() }`)
         this.x = x
         this.y = y
