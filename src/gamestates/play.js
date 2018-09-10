@@ -1,7 +1,7 @@
 const Globals = require('../globals')
 const Player = require('../entities/player')
 const Gamestate = require('../lib/gamestate')
-const { Level, LevelEvent, getAllLevels } = require('../entities/level')
+const { getAllLevels } = require('../entities/levels')
 
 class Play extends Gamestate {
 
@@ -9,11 +9,7 @@ class Play extends Gamestate {
         super()
 
         this.player = new Player()
-        this.allLevels = [
-            new Level([
-                new LevelEvent(0, () => { /* spawn enemy */ })
-            ])
-        ]
+
         this.currentLevelIndex = -1
         this.currLevel = undefined
         this.prevLevel = undefined
@@ -24,34 +20,29 @@ class Play extends Gamestate {
         this.changeToNextLevel()
     }
 
-    getLevelTime() {
-        return (new Date() - this.currentLevelStart) / 1000
-    }
-
     changeToNextLevel() {
 
-        if (this.currLevel) {
-            this.prevLevel = this.currLevel
-            // TODO: Trigger level transition on the prevLevel?
-        }
+        this.prevLevel = this.currLevel
+        // TODO: Trigger level transition on the prevLevel (?)
 
-        this.currentLevelIndex++
+        this.currentLevelIndex += 1
         this.currLevel = getAllLevels()[this.currentLevelIndex]
-        this.currentLevelStart = Globals.getTime()
+        this.currLevel.startTime = Globals.getTime()
 
-        console.log(`Changed to Level ${ this.currentLevelIndex }`)
+        console.log('Changed to Level ', this.currLevel)
     }
 
     update(deltaTime) {
 
         if (this.currLevel) {
-            this.currLevel.stateUpdate(deltaTime)
+            this.currLevel.stateUpdate(deltaTime, this.currLevel.getLevelTime())
             this.currLevel.renderUpdate()
         }
 
         this.player.stateUpdate(deltaTime)
         this.player.renderUpdate()
 
+        console.log(this.currLevel.getLevelTime())
     }
 
     end() {

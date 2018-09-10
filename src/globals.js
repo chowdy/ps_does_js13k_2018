@@ -5,26 +5,31 @@
  */
 const CANVAS_ID = 'canvas0'
 const CONFIDENCE_LEVEL = 'dev' // this is bad
+module.exports.CANVAS_ID = CANVAS_ID
+module.exports.CONFIDENCE_LEVEL = CONFIDENCE_LEVEL
+
 
 function getCanvas() {
     return document.getElementById(CANVAS_ID)
 }
+module.exports.getCanvas = getCanvas
 
 function getCtx() {
     return getCanvas().getContext('2d')
 }
+module.exports.getCtx = getCtx
 
 /*
  * Make sure we call this when the game starts
  */
 let gameStartTime = undefined
 module.exports.gameStarted = () => {
-    gameStartTime = new Date()
+    gameStartTime = (Date.now() / 1000)
 }
 
 // Time since game has started in seconds
 module.exports.getTime = () => {
-    return (new Date() - gameStartTime) / 1000
+    return (Date.now() / 1000) - gameStartTime
 }
 
 module.exports.colors = {
@@ -39,18 +44,18 @@ module.exports.colors = {
     TahitiGold: '#e97126',
     Twine: '#d9a066',
     Pancho: '#eec39a',
-    GoldenFizz: '#fbf236',      // Nice for bullets
-    Atlantis: '#99e550',        // Nice color for text on the terminal
+    GoldenFizz: '#fbf236',
+    Atlantis: '#99e550',        // Nice color for text on the terminal TODO: Use this for player and player bullets
     Christi: '#6abe30',
     ElfGreen: '#37946e',
     Dell: '#4b692f',
     Verdigris: '#524b24',
     Opal: '#323c39',
     DeepKoamaru: '#3f3f74',
-    VeniceBlue: '#306082',
-    RoyalBlue: '#5b6ee1',
-    Cornflower: '#639bff',
-    Viking: '#5fcde4',          // Nice for enemies... Maybe we'll give them a cool motif? Save pink/violets for bullets?
+    VeniceBlue: '#306082',      // Enemy
+    RoyalBlue: '#5b6ee1',       // Enemy
+    Cornflower: '#639bff',      // Enemy
+    Viking: '#5fcde4',          // TODO: Use this for enemy bullets
     LightSteelBlue: '#cbdbfc',
     White: '#ffffff',
     Heather: '#9badb7',
@@ -58,17 +63,12 @@ module.exports.colors = {
     DimGray: '#696a6a',
     SmokeyAsh: '#595652',
     Clairvoyant: '#76428a',
-    Red: '#ac3232',           // Player color. Let's make the player motif warm.
+    Red: '#ac3232',
     Mandy: '#d95763',
     Plum: '#d77bba',
     RainForest: '#8f974a',
     Stinger: '#8a6f30',
 }
-
-module.exports.CANVAS_ID = CANVAS_ID
-module.exports.CONFIDENCE_LEVEL = CONFIDENCE_LEVEL
-module.exports.getCanvas = getCanvas
-module.exports.getCtx = getCtx
 
 module.exports.utils = {
 

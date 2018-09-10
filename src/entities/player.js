@@ -6,7 +6,7 @@ const Missile = require('../entities/missile')
 class Player extends Entity {
 
     constructor() {
-        super('Player', null, 25, 25, 150, Globals.colors.Red)
+        super('Player', null, 25, 25, 150, Globals.colors.Atlantis)
         console.log(`instantiated ${ this.toString() }`)
         this.x = 320
         this.y = 400
