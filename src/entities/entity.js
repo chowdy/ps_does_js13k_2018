@@ -18,7 +18,7 @@ class Entity {
         }
     }
 
-    stateUpdate(deltaTime) { deltaTime /* eslint 🙃 */ }
+    stateUpdate(deltaTime) { deltaTime /* appease eslint */ }
 
     renderUpdate() {
         Globals.getCtx().fillStyle = this.color
