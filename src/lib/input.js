@@ -1,25 +1,25 @@
 let _pressed = {}
 let input = {}
 
+/*
+ * Define input controls. These are labels for KeyCodes.
+ * http://keycode.info/
+ */
 input.LEFT = 37
 input.UP = 38
 input.RIGHT = 39
 input.DOWN = 40
+input.FIRE = 32 // space
 
 input.isDown = function (keyCode) {
-    if (_pressed[keyCode]) {
-        //console.log(`${ keyCode } isDown`)
-    }
     return _pressed[keyCode]
 }
 
 input.onKeydown = function (event) {
-    //console.log(`${ event.keyCode } onKeyDown event`)
     _pressed[event.keyCode] = true
 }
 
 input.onKeyup = function  (event) {
-    //console.log(`${ event.keyCode } onKeyUp event`)
     _pressed[event.keyCode] = null
 }
 

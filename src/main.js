@@ -13,7 +13,7 @@ function createCanvas() {
     canvas.setAttribute('id', Globals.CANVAS_ID)
     canvas.width = 640
     canvas.height = 480
-    canvas.style.backgroundColor = '#000'
+    canvas.style.backgroundColor = '#000000'
     document.body.appendChild(canvas)
     //let ctx = canvas.getContext('2d')
     console.log('canvas created', canvas)

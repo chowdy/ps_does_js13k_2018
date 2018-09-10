@@ -32,7 +32,8 @@ module.exports.render = {
 }
 
 module.exports.colors = {
-    // TODO: Turn this into a nice map
+
+    // DB32 Color Palette
     // http://pixeljoint.com/forum/forum_posts.asp?TID=16247
     Black: '#000000',
     Valhalla: '#222034',
@@ -67,3 +68,6 @@ module.exports.colors = {
     RainForest: '#8f974a',
     Stinger: '#8a6f30',
 }
+
+// It's web safe and monospace
+module.exports.font = 'Courier New'
