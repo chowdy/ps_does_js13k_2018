@@ -1,5 +1,6 @@
 //const Globals = require('../globals')
 const Player = require('../entities/player')
+const Missile = require('../entities/missile')
 const Gamestate = require('../lib/gamestate')
 
 class Play extends Gamestate {
@@ -7,6 +8,7 @@ class Play extends Gamestate {
     constructor() {
         super()
         this.player = new Player()
+        this.missile = new Missile()
     }
 
     start() {
@@ -21,7 +23,6 @@ class Play extends Gamestate {
         //console.log(ctx, canvas)
 
         this.player.stateUpdate(deltaTime)
-
         // draw player
         this.player.renderUpdate()
     }

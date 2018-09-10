@@ -1,20 +1,25 @@
 const Entity = require('./entity')
 const Globals = require('../globals')
 const input = require('../lib/input')
+const Missile = require('../entities/missile')
 
 class Player extends Entity {
 
     constructor() {
-        super('Player')
+        super('Player', null, 25, 25, 150, 'rgba(236, 94, 103, 1)')
         console.log(`instantiated ${ this.toString() }`)
+        this.x = 320
+        this.y = 400
+        this.missiles = []
+        this.timeOfLastMissile = Date.now()
     }
 
     stateUpdate(deltaTime) {
         super.stateUpdate(deltaTime)
-        //console.log(this.toString())
-
+        // console.log(this.toString())
         this.handleInput(deltaTime)
         this.containWithinCanvasBounds()
+        this.renderMissiles(deltaTime)
     }
 
     renderUpdate() {
@@ -36,6 +41,9 @@ class Player extends Entity {
         if (input.isDown(input.DOWN)) {
             this.y = this.y + (this.speed * deltaTime)
         }
+        if (input.isDown(input.SPACE_BAR)) {
+            this.shootMissile()
+        }
     }
 
     containWithinCanvasBounds() {
@@ -50,6 +58,24 @@ class Player extends Entity {
             this.y = canvas.height
         } else if (this.y > canvas.height) {
             this.y = 0
+        }
+    }
+
+    renderMissiles(deltaTime) {
+        for(var i = 0; i < this.missiles.length; i++) {
+            if (this.missiles[i] != null) {
+                this.missiles[i].stateUpdate(deltaTime)
+                this.missiles[i].renderUpdate()
+            }
+        }
+    }
+
+    shootMissile() {
+        var cooldown = 200
+        let currentTime = Date.now()
+        if(currentTime - this.timeOfLastMissile > cooldown) {
+            this.missiles.push(new Missile(this.x, this.y))
+            this.timeOfLastMissile = currentTime
         }
     }
 }
