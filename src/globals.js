@@ -14,6 +14,19 @@ function getCtx() {
     return getCanvas().getContext('2d')
 }
 
+/*
+ * Make sure we call this when the game starts
+ */
+let gameStartTime = undefined
+module.exports.gameStarted = () => {
+    gameStartTime = new Date()
+}
+
+// Time since game has started in seconds
+module.exports.getTime = () => {
+    return (new Date() - gameStartTime) / 1000
+}
+
 module.exports.colors = {
 
     // DB32 Color Palette
