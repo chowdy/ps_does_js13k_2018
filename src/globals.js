@@ -26,7 +26,7 @@ module.exports.colors = {
     TahitiGold: '#e97126',
     Twine: '#d9a066',
     Pancho: '#eec39a',
-    GoldenFizz: '#fbf236',
+    GoldenFizz: '#fbf236',      // Nice for bullets
     Atlantis: '#99e550',        // Nice color for text on the terminal
     Christi: '#6abe30',
     ElfGreen: '#37946e',
@@ -37,7 +37,7 @@ module.exports.colors = {
     VeniceBlue: '#306082',
     RoyalBlue: '#5b6ee1',
     Cornflower: '#639bff',
-    Viking: '#5fcde4',
+    Viking: '#5fcde4',          // Nice for enemies... Maybe we'll give them a cool motif? Save pink/violets for bullets?
     LightSteelBlue: '#cbdbfc',
     White: '#ffffff',
     Heather: '#9badb7',
@@ -45,7 +45,7 @@ module.exports.colors = {
     DimGray: '#696a6a',
     SmokeyAsh: '#595652',
     Clairvoyant: '#76428a',
-    Brown: '#ac3232',
+    Red: '#ac3232',           // Player color. Let's make the player motif warm.
     Mandy: '#d95763',
     Plum: '#d77bba',
     RainForest: '#8f974a',
@@ -64,21 +64,23 @@ module.exports.utils = {
 // It's web safe and monospace
 module.exports.typeface = 'Courier New'
 
+/*
+ * Render methods that are commonly used
+ *
+ * These probably need to be called in an update() or render() function (preferably the latter!)
+ */
 module.exports.render = {
 
     // Render some text on the screen
     text(text, opts = {}) {
 
-        let defaultOpts = {
+        opts = Object.assign({
             fillStyle: module.exports.colors.Atlantis,
             size: '30px',
             typeface: module.exports.typeface,
             x: 0,
             y: 0
-        }
-        opts = Object.assign(defaultOpts, opts)
-
-        console.log(opts)
+        }, opts)
 
         let ctx = getCtx()
 
