@@ -28,9 +28,9 @@ class Level extends Entity {
         this.levelEvents = levelEvents
     }
 
-    stateUpdate(deltaTime) { deltaTime; }
+    stateUpdate(deltaTime) { deltaTime }
 
-    renderUpdate(deltaTime) { deltaTime; }
+    renderUpdate(deltaTime) { deltaTime }
 
 }
 
