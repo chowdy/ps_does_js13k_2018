@@ -5,7 +5,7 @@ class Missile extends Entity {
 
     constructor(x, y) {
         super('Missile', null, 10, 10, 200, Globals.colors.GoldenFizz)
-        console.log(`instantiated ${ this.toString() }`)
+        //console.log(`instantiated ${ this.toString() }`)
         this.x = x
         this.y = y
     }

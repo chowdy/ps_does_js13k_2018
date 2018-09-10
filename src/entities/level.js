@@ -4,14 +4,21 @@
  * A list of LevelEvents. A LevelEvent does something at a certain time.
  */
 
-const Entity = require('../entity')
+const Entity = require('./entity')
 
 class LevelEvent {
 
-    spawnEnemy(enemy) {
+    /*
+     * LevelEvent(time, event)
+     *
+     * levelTime - The time to fire the event relative to the level's start time
+     * event     - A function to fire at the specified LevelTime
+     */
+    constructor(levelTime, event) {
+        this.levelTime = levelTime
+        this.event = event
     }
 
-    constructor(action, )
 }
 
 class Level extends Entity {
@@ -21,6 +28,11 @@ class Level extends Entity {
         this.levelEvents = levelEvents
     }
 
+    stateUpdate(deltaTime) { deltaTime; }
+
+    renderUpdate(deltaTime) { deltaTime; }
+
 }
 
-module.exports = Level
+module.exports.Level = Level
+module.exports.LevelEvent = LevelEvent

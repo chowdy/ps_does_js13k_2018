@@ -1,12 +1,21 @@
 //const Globals = require('../globals')
 const Player = require('../entities/player')
 const Gamestate = require('../lib/gamestate')
+const { Level, LevelEvent } = require('../entities/level')
 
 class Play extends Gamestate {
 
     constructor() {
         super()
+
         this.player = new Player()
+        this.allLevels = [
+            new Level([
+                new LevelEvent(0, () => { /* spawn enemy */ })
+            ])
+        ]
+        this.currentLevelIndex = 0
+        this.currentLevel = this.allLevels[this.currentLevelIndex]
     }
 
     start() {
@@ -15,14 +24,12 @@ class Play extends Gamestate {
 
     update(deltaTime) {
 
-        //let ctx = Globals.getCtx()
-        //let canvas = ctx.canvas
-
-        //console.log(ctx, canvas)
-
+        this.currentLevel.stateUpdate(deltaTime)
         this.player.stateUpdate(deltaTime)
-        // draw player
+
         this.player.renderUpdate()
+        this.currentLevel.renderUpdate()
+
     }
 
     end() {
