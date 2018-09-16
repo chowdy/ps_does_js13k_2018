@@ -42,6 +42,18 @@ class Play extends Gamestate {
         this.player.stateUpdate(deltaTime)
         this.player.renderUpdate()
 
+        //Update Enemies
+        for (let i = 0; i < this.currLevel.allEnemies.length; i++) {
+            let enemy = this.currLevel.allEnemies[i]
+            if (enemy) {
+                enemy.stateUpdate()
+                enemy.renderUpdate()
+            }
+        }
+
+        //TODO Collision Detection (Enemy-Player, Enemy-Missile)
+        //TODO Gamestate Change when: A. All Enemies Dead B. When Player Dead
+
         console.log(this.currLevel.getLevelTime())
     }
 
